@@ -5,8 +5,9 @@ import Header from "../../Components/Header";
 const Home = () => {
   return (
     <div>
-      <Header />
       <p class="text-center text-4xl text-body font-display">รับชมเฟสทั้งหมด</p>
+      <Card />
+      <Card />
       <Card />
     </div>
   );
