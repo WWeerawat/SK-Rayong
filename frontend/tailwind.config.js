@@ -17,7 +17,6 @@ module.exports = {
       //       a custom font here you are also removing the default
       //       font families sans, serif and mono.
       //
-
       display: ["Noto Sans Thai", "sans-serif"],
       body: ['"Open Sans"', "serif"],
     },
