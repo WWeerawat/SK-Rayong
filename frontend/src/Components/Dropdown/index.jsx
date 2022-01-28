@@ -4,7 +4,7 @@ import useCollapse from "react-collapsed";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import line from "../../Asset/images/line.png";
-import Card from "../Card";
+import LockCard from "../LockCard";
 
 const Dropdowm = () => {
   const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
@@ -34,7 +34,7 @@ const Dropdowm = () => {
       </div>
       <div {...getCollapseProps()}>
         <div class="content">
-          <Card />
+          <LockCard />
         </div>
       </div>
     </div>

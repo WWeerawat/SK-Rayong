@@ -1,21 +1,17 @@
 import React from "react";
-import { Collapse } from "react-collapse";
 import underline from "../../Asset/images/underline.png";
 import land from "../../Asset/images/land1.png";
 import layout from "../../Asset/images/layout.png";
 import map from "../../Asset/images/map.png";
 import ggMapLogo from "../../Asset/images/ggMapLogo.png";
-import Dropdowm from "../../Components/Dropdown";
 import NearByPlace from "../../Components/NearbyPlace";
-const Phase = () => {
+const Lock = () => {
   return (
     <div>
       <div class="grid place-items-center m-4">
         <img src={underline} alt="" class="" />
       </div>
-      <p class="text-center text-2xl text-body font-display">
-        ที่ดินสำหรับ<p class="inline text-primary">กลุ่มบ้านสวน</p>โดยเฉพาะ
-      </p>
+      <p class="text-center text-2xl text-body font-display">ล็อก : 7</p>
       <div class="relative ">
         <div class="grid place-items-center m-4">
           <img src={land} alt="" class="" />
@@ -29,7 +25,7 @@ const Phase = () => {
       <div class="relative ">
         <div class="grid place-items-center m-4">
           <p class="text-center text-2xl text-body font-display m-4">
-            รับชมบรรยากาศ
+            รับชมบรรยากาศล็อกที่: 7
           </p>
           <iframe
             class="w-full h-full"
@@ -41,22 +37,25 @@ const Phase = () => {
       </div>
       <div class="relative ">
         <div class="grid place-items-center m-4">
-          <p class="text-center text-2xl text-body font-display m-4">
-            ผังล็อกที่ดิน
-          </p>
-          <img src={layout} alt="" class="" />
-        </div>
-      </div>
-      <div class="relative ">
-        <div class="grid place-items-center m-4">
-          <p class="text-center text-2xl text-body font-display ">
-            ล็อกหลุดจอง
-          </p>
-          <div class="relative m-5 shadow-lg w-full pt-2 bg-white">
-            <Dropdowm />
-            <Dropdowm />
-            <Dropdowm />
-            <Dropdowm />
+          <p class="text-center text-2xl text-body font-display">รายละเอียด</p>
+          <div class="relative bg-white shadow-xl shadow-inner w-full m-5 p-4 ">
+            <p class="text-left text-xl text-body font-display m-2">
+              ราคา: 1,400,000 บาท
+            </p>
+            <p class="text-left text-xl text-body font-display m-2">
+              <button class="border-2 border-green-500 px-4 rounded text-green-500 mr-2 ">
+                ผ่อน
+              </button>
+              75,543 /เดือน
+            </p>
+            <p class="text-left text-xl text-body font-display m-2">
+              624 ตร.ม.
+            </p>
+            <br />
+            <p class="text-left text-xl text-body font-display m-2">
+              ขายที่ดินโฉนด 14 ไร่ หนองแค ใกล้นิคมฯ เหมราช 1 ล้าน / ไร่
+              ผังสีชมพู หนองปลาหมอ, หนองแค, สระบุรี
+            </p>
           </div>
         </div>
       </div>
@@ -96,8 +95,11 @@ const Phase = () => {
           </div>
         </div>
       </div>
+      <div class="text-center text-4xl text-primary font-display">
+        หากคุณสนใจ
+      </div>
     </div>
   );
 };
 
-export default Phase;
+export default Lock;
