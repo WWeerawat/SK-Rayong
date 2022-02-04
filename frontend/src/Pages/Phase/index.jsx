@@ -18,7 +18,7 @@ const Phase = () => {
       </p>
       <div class="relative ">
         <div class="grid place-items-center m-4">
-          <img src={land} alt="" class="" />
+          <img src={land} alt="" class="shadow-lg m-4" />
           <p class="text-md text-left text-body font-display">
             เนื้อที่กว่า 800 ไร่ พิถีพิถันในการออกแบบผัง โครงการ
             ให้ที่ดินจัดสรรทุกแปลงล้วนตั้ง อยู่บนเนินเขาลดหลั่นต่างระดับ
@@ -32,7 +32,7 @@ const Phase = () => {
             รับชมบรรยากาศ
           </p>
           <iframe
-            class="w-full h-full"
+            class="w-313 h-180 shadow-lg"
             src="https://www.youtube.com/embed/zihoyz0u_cs"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
@@ -44,7 +44,7 @@ const Phase = () => {
           <p class="text-center text-2xl text-body font-display m-4">
             ผังล็อกที่ดิน
           </p>
-          <img src={layout} alt="" class="" />
+          <img src={layout} alt="" class="shadow-lg m-4" />
         </div>
       </div>
       <div class="relative ">
@@ -57,6 +57,7 @@ const Phase = () => {
             <Dropdowm />
             <Dropdowm />
             <Dropdowm />
+            <div class="m-4"></div>
           </div>
         </div>
       </div>
@@ -67,9 +68,9 @@ const Phase = () => {
           </p>
 
           <p class="w-full text-left text-md text-primary font-display m-2">
-            <img src={ggMapLogo} alt="" class="inline" /> เปิดใน Google maps
+            <img src={ggMapLogo} alt="" class="inline " /> เปิดใน Google maps
           </p>
-          <img src={map} alt="" class="" />
+          <img src={map} alt="" class="shadow-lg" />
         </div>
       </div>
       <div class="relative ">
@@ -78,7 +79,7 @@ const Phase = () => {
             บรรยากาศสถานที่ใกล้เคียง
           </p>
           <iframe
-            class="w-full h-full"
+            class="w-313 h-180 shadow-lg"
             src="https://www.youtube.com/embed/zihoyz0u_cs"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

@@ -29,7 +29,8 @@ const Dropdowm = () => {
           </div>
         </div>
         <div class="grid place-items-center">
-          <img src={line} alt="" class="" />
+          <div class="border-b-2 w-5/6 "></div>
+          {/* <img src={line} alt="" class="" /> */}
         </div>
       </div>
       <div {...getCollapseProps()}>

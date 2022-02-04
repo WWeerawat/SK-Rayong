@@ -2,7 +2,7 @@ import React from "react";
 import Map from "../../Asset/images/Footer_map.png";
 import FB from "../../Asset/images/Footer_FB.png";
 import Phone from "../../Asset/images/Footer_Phone.png";
-import FooterImg from "../../Asset/images/Footer.png";
+import FooterImg from "../../Asset/images/Footer.svg";
 const Footer = () => {
   return (
     <div class="relative">

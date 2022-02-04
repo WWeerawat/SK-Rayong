@@ -5,7 +5,7 @@ const Card = () => {
   return (
     <div>
       <div class="relative m-5 shadow-lg hover:scale-105 transition duration-500 cursor-pointer ">
-        <img src={land} alt="" class="w-full" />
+        <img src={land} alt="" class="w-full shadow-lg px-4 pb-4 pt-1" />
         <button class="absolute right-3 top-2 bg-red shadow-lg px-5 py-1 rounded text-md text-white font-display">
           หลุดจอง 4 ล็อค
         </button>

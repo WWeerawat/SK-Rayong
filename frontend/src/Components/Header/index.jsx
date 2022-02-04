@@ -1,12 +1,13 @@
 import React from "react";
-import headerImg from "../../Asset/images/Header.png";
+import { Link } from "react-router-dom";
+import headerImg from "../../Asset/images/Header.svg";
 
 const Header = () => {
   return (
     <div>
-      <img src={headerImg} class="w-full" />
+      <img src={headerImg} class="w-full " />
       <div class="text-center text-4xl text-primary font-bold font-display">
-        SK
+        <Link to="">SK</Link>
       </div>
       <div class="text-center text-3xl text-body font-display">
         ที่ดินผ่อนได้

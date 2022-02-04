@@ -30,7 +30,7 @@ const NearByPlace = () => {
         </div>
       </div>
       <div class="grid place-items-center">
-        <img src={line} alt="" class="w-full" />
+        <div class="border-b-2 w-5/6 "></div>
       </div>
     </div>
   );

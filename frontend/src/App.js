@@ -11,7 +11,7 @@ import Phase from "./Pages/Phase";
 function App() {
   return (
     <div class="App bg-gradient-to-b from-yellow-grad to-white">
-      <div class="sm:container sm:mx-auto">
+      <div class="sm:container sm:mx-auto w-390">
         <Header />
         <Routes>
           <Route path="/" element={<Home />}></Route>

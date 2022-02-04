@@ -5,7 +5,7 @@ const LockCard = () => {
   return (
     <div>
       <div class="relative m-5 shadow-lg hover:scale-105 transition duration-500 cursor-pointer ">
-        <img src={land} alt="" class="w-full" />
+        <img src={land} alt="" class="w-full shadow-lg p-4" />
 
         <div class="py-4 px-4 bg-white">
           <p class="text-xl text-left text-body font-display">
