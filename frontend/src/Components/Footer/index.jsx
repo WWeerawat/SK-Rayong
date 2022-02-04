@@ -20,6 +20,7 @@ const Footer = () => {
           ผ่อนได้ถูกมาก
         </p>
         <img src={Phone} alt="" class="" />
+        <p class="text-center text-3xl text-red500 font-display m-4">โทรด่วน</p>
         <p class="text-center text-xl text-body font-display m-4">
           099-999-9999 (คุณเอ)
         </p>

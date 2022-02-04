@@ -29,6 +29,7 @@ module.exports = {
         yellow: "#F7E630",
         "yellow-grad": "#FEFFDC",
         red: "#A92020",
+        red500: "#DC2626",
         body: "#777070",
       },
     },
