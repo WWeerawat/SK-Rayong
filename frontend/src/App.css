@@ -58,3 +58,29 @@
     transform: translateY(-15px);
   }
 }
+
+.slick-prev,
+.slick-next {
+  position: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.slick-next {
+  right: 1%;
+}
+.slick-prev {
+  left: 0;
+}
+.slick-prev::before,
+.slick-next::before {
+  display: none;
+}
+
+.slick-dots {
+  position: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  bottom: 8%;
+}

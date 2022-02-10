@@ -1,12 +1,33 @@
 import React from "react";
+import Slider from "react-slick";
+import PreviousArrow from "../PreviousArrow";
+import NextArrow from "../NextArrow";
 import tree from "../../Asset/images/Tree.png";
 import bird from "../../Asset/images/Bird.png";
 import banner from "../../Asset/images/banner.svg";
-
 const Banner = () => {
+  const settings = {
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: true,
+    prevArrow: <PreviousArrow fontSize="40px" />,
+    nextArrow: <NextArrow fontSize="40px" />,
+    className: "slides",
+  };
   return (
     <div>
-      <img class="w-full py-4 " src={banner} alt="headerImage" />
+      <div class="w-full py-4">
+        <Slider {...settings}>
+          <img class="" src={banner} alt="headerImage" />
+          <img class="" src={banner} alt="headerImage" />
+          <img class="" src={banner} alt="headerImage" />
+          <img class="" src={banner} alt="headerImage" />
+        </Slider>
+      </div>
+
       <div class="text-3xl text-body font-display relative px-8 pb-12 ">
         <img src={bird} alt="" class="absolute top-4 right-0 pr-3" />
         <p class="text-left p-3">

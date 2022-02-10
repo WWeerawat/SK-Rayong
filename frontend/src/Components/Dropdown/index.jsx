@@ -3,7 +3,6 @@ import { Collapse } from "react-collapse";
 import useCollapse from "react-collapsed";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
-import line from "../../Asset/images/line.png";
 import LockCard from "../LockCard";
 
 const Dropdowm = () => {
@@ -30,7 +29,6 @@ const Dropdowm = () => {
         </div>
         <div class="grid place-items-center">
           <div class="border-b-2 w-5/6 "></div>
-          {/* <img src={line} alt="" class="" /> */}
         </div>
       </div>
       <div {...getCollapseProps()}>
