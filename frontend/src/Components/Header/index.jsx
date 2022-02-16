@@ -6,14 +6,14 @@ import { faLongArrowAltDown } from "@fortawesome/free-solid-svg-icons";
 const Header = () => {
   return (
     <div>
-      <img src={headerImg} class="w-full " />
-      <div class="text-center text-4xl text-primary font-bold font-display">
+      <img src={headerImg} className="w-full " />
+      <div className="text-center text-4xl text-primary font-bold font-display">
         <Link to="">SK</Link>
       </div>
-      <div class="text-center text-3xl text-body font-display">
+      <div className="text-center text-3xl text-body font-display">
         ที่ดินผ่อนได้
       </div>
-      <div class="mx-2 bounce flex justify-between">
+      <div className="mx-2 bounce flex justify-between">
         <FontAwesomeIcon icon={faLongArrowAltDown} size="3x" color="green" />
         <FontAwesomeIcon icon={faLongArrowAltDown} size="3x" color="green" />
       </div>
