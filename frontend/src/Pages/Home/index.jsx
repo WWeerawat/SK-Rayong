@@ -4,7 +4,7 @@ import Banner from "../../Components/Banner";
 import Card from "../../Components/Card";
 
 const Home = () => {
-  const [phases, setPhases] = useState(null);
+  const [phases, setPhases] = useState([]);
 
   useEffect(() => {
     axios.get("/phases").then((response) => {
@@ -15,12 +15,15 @@ const Home = () => {
   return (
     <div>
       <Banner />
-      <p className="text-center text-4xl text-body font-display">
+      <div className="text-center text-4xl text-body font-display">
         รับชมเฟสทั้งหมด
-      </p>
-      <Card />
-      <Card />
-      <Card />
+      </div>
+      {phases.map(
+        (phase, index) =>
+          phase.phase_lock.length !== 0 && (
+            <Card key={phase.name} phase={phase} />
+          )
+      )}
     </div>
   );
 };

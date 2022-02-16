@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
+import axios from "../../Config/axios";
 import underline from "../../Asset/images/underline.png";
 import land from "../../Asset/images/land1.png";
 import layout from "../../Asset/images/layout.png";
@@ -7,7 +8,8 @@ import map from "../../Asset/images/map.png";
 import ggMapLogo from "../../Asset/images/ggMapLogo.png";
 import Dropdowm from "../../Components/Dropdown";
 import NearByPlace from "../../Components/NearbyPlace";
-const Phase = () => {
+import { useParams } from "react-router-dom";
+const Phase = (props) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -15,62 +17,83 @@ const Phase = () => {
     slidesToScroll: 1,
     autoplay: true,
     speed: 2000,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 5000,
     pauseOnHover: true,
   };
+  let { id } = useParams();
+
+  const [phase, setPhase] = useState([]);
+  useEffect(() => {
+    axios.get(`/phase/${id}`).then((response) => {
+      setPhase(response.data);
+    });
+  }, [id]);
+
   return (
     <div className="flex flex-col justify-center p-4">
       <div className="flex justify-center m-4">
         <img src={underline} alt="" className="" />
       </div>
 
-      <p className="text-center text-2xl text-body font-display m-4">
-        ที่ดินสำหรับ<p className="inline text-primary">กลุ่มบ้านสวน</p>โดยเฉพาะ
-      </p>
+      <div className="text-center text-2xl text-body font-display m-4">
+        ที่ดินสำหรับ
+        <span className="inline text-primary">กลุ่มบ้านสวน</span>
+        โดยเฉพาะ
+      </div>
 
+      <p className="text-center text-2xl text-body font-display m-4">
+        {phase.name}
+      </p>
       <Slider {...settings}>
-        <div>
-          <img src={land} alt="" className="w-full  shadow-lg" />
-        </div>
-        <div>
-          <img src={land} alt="" className="w-full shadow-lg" />
-        </div>
-        <div>
-          <img src={land} alt="" className="w-full shadow-lg" />
-        </div>
+        {phase.images &&
+          phase.images.map((image, index) => (
+            <div key={image.image + image.id} style={{ paddingTop: "56.25%" }}>
+              <img
+                src={image.image}
+                alt=""
+                className="object-cover w-full shadow-lg"
+              />
+            </div>
+          ))}
       </Slider>
 
       <p className="text-md text-left text-body font-display my-4">
-        เนื้อที่กว่า 800 ไร่ พิถีพิถันในการออกแบบผัง โครงการ
-        ให้ที่ดินจัดสรรทุกแปลงล้วนตั้ง อยู่บนเนินเขาลดหลั่นต่างระดับ
-        ไม่บดบังทิวทัศน์
+        {phase.description}
       </p>
 
       <p className="text-center text-2xl text-body font-display m-4">
         รับชมบรรยากาศ
       </p>
-      <iframe
-        title="videoView"
-        className=" shadow-lg"
-        height="180"
-        src="https://www.youtube.com/embed/zihoyz0u_cs"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      ></iframe>
+      <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
+        <iframe
+          title="videoView"
+          className="absolute w-full h-full top-0 left-0 shadow-lg"
+          src={"//www.youtube.com/embed/" + phase.videoView}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </div>
 
       <p className="text-center text-2xl text-body font-display m-4">
         ผังล็อกที่ดิน
       </p>
-      <img src={layout} alt="" className="shadow-lg " />
+      <img src={phase.layoutImage} alt="" className="shadow-lg " />
 
       <p className="text-center text-2xl text-body font-display m-4 ">
         ล็อกหลุดจอง
       </p>
       <div className="relative shadow-lg w-full pt-2 bg-white">
-        <Dropdowm />
-        <Dropdowm />
-        <Dropdowm />
-        <Dropdowm />
+        {phase.phase_lock &&
+          phase.phase_lock.map((lock, index) => (
+            <Dropdowm
+              key={lock.name}
+              id={lock.id}
+              name={lock.name}
+              images={lock.images}
+              description={lock.description}
+            />
+          ))}
+
         <div className="m-4"></div>
       </div>
 
@@ -78,7 +101,7 @@ const Phase = () => {
         สถานที่ใกล้เคียง
       </p>
 
-      <a href="https://www.google.com/maps/place/Mitthairatana,LTD/@12.7175815,101.1730622,15z/data=!4m5!3m4!1s0x3102f03ff1976bd3:0xc6e736909053c877!8m2!3d12.7135293!4d101.1675871">
+      <a href={phase.location}>
         <p className="w-full text-left text-md text-primary font-display  mb-2">
           <img src={ggMapLogo} alt="" className="inline " /> เปิดใน Google maps
         </p>
@@ -94,7 +117,7 @@ const Phase = () => {
         title="videoNearby"
         className="shadow-lg"
         height="180"
-        src="https://www.youtube.com/embed/zihoyz0u_cs"
+        src={"//www.youtube.com/embed/" + phase.videoNearby}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       ></iframe>
@@ -105,8 +128,12 @@ const Phase = () => {
         <p className="text-left text-xl text-body font-display ">
           สถานที่ใกล้เคียง
         </p>
-        <NearByPlace />
-        <NearByPlace />
+        {phase.phase_lock &&
+          phase.phase_lock.map((lock, index) =>
+            lock.nearbies.map((nearby, nearbyIndex) => (
+              <NearByPlace key={nearby.name} nearby={nearby} />
+            ))
+          )}
       </div>
     </div>
   );

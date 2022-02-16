@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import LockCard from "../LockCard";
 
-const Dropdowm = () => {
+const Dropdowm = ({ id, name, images, description }) => {
   const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
   return (
     <div className="collapsible">
@@ -17,7 +17,7 @@ const Dropdowm = () => {
             </button>
           </div>
           <div className="col-start-4 col-span-3 text-left align-baseline">
-            <p className="inline text-xl text-body font-display ">ล็อก 7</p>
+            <p className="inline text-xl text-body font-display ">{name}</p>
           </div>
           <div className="col-start-8 align-middle">
             {isExpanded ? (
@@ -33,7 +33,7 @@ const Dropdowm = () => {
       </div>
       <div {...getCollapseProps()}>
         <div className="content">
-          <LockCard />
+          <LockCard id={id} images={images} description={description} />
         </div>
       </div>
     </div>

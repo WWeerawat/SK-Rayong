@@ -30,15 +30,15 @@ const Banner = () => {
 
       <div className="text-3xl text-body font-display relative px-8 pb-12 ">
         <img src={bird} alt="" className="absolute top-4 right-0 pr-3" />
-        <p className="text-left p-3">
-          "<p className="inline text-4xl  font-bold">ที่</p>
+        <div className="text-left p-3">
+          "<span className="inline text-4xl  font-bold">ที่</span>
           ดินระยอง
-        </p>
+        </div>
         <p className=" underline text-primary">จัดสรรสวย</p>
-        <p className="text-right p-3 pb-6">
+        <div className="text-right p-3 pb-6">
           ผ่อนได้
-          <p className="inline text-4xl  font-bold">ถูก</p>มาก"
-        </p>
+          <span className="inline text-4xl  font-bold">ถูก</span>มาก"
+        </div>
         <img src={tree} alt="" className="absolute bottom-0 left-0 " />
       </div>
     </div>

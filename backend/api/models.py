@@ -1,7 +1,15 @@
+import re
 from django.db import models
 from django.utils.text import slugify
 
+
 # Create your models here.
+def convert_ytframe(url):
+    video_id = url.split("watch?v=")
+    print(video_id)
+    return video_id[1]
+
+
 class Phase(models.Model):
     def get_image_filename(instance, filename):
         title = instance.name
@@ -10,8 +18,8 @@ class Phase(models.Model):
 
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=255)
-    videoView = models.URLField(max_length=100)
-    videoNearby = models.URLField(max_length=100)
+    videoView = models.CharField(max_length=100)
+    videoNearby = models.CharField(max_length=100)
     location = models.URLField(max_length=100)
     layoutImage = models.ImageField(upload_to=get_image_filename, verbose_name="Image")
     slug = models.SlugField(blank=True, max_length=255, unique=True)
@@ -24,6 +32,10 @@ class Phase(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.name)
+        if len(self.videoView) > 20:
+            self.videoView = convert_ytframe(self.videoView)
+        if len(self.videoNearby) > 20:
+            self.videoNearby = convert_ytframe(self.videoNearby)
         super(Phase, self).save(*args, **kwargs)
 
 
@@ -41,18 +53,20 @@ class PhaseImage(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.image
+        return self.phase.name
 
 
 class Lock(models.Model):
-    phase = models.ForeignKey(Phase, default=None, on_delete=models.CASCADE)
+    phase = models.ForeignKey(
+        Phase, default=None, related_name="phase_lock", on_delete=models.CASCADE
+    )
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=255)
     price = models.IntegerField()
     monthly = models.FloatField()
     area = models.FloatField()
-    videoView = models.URLField(max_length=100)
-    videoNearby = models.URLField(max_length=100)
+    videoView = models.CharField(max_length=100)
+    videoNearby = models.CharField(max_length=100)
     location = models.URLField(max_length=100)
     slug = models.SlugField(blank=True, max_length=255, unique=True)
     updated = models.DateTimeField(auto_now=True)
@@ -64,6 +78,10 @@ class Lock(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.name)
+        if len(self.videoView) > 20:
+            self.videoView = convert_ytframe(self.videoView)
+        if len(self.videoNearby) > 20:
+            self.videoNearby = convert_ytframe(self.videoNearby)
         super(Lock, self).save(*args, **kwargs)
 
 
@@ -81,7 +99,7 @@ class LockImage(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.image
+        return self.lock.name
 
 
 class Nearyby(models.Model):

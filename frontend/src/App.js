@@ -14,8 +14,8 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          <Route path="phase" element={<Phase />}></Route>
-          <Route path="lock" element={<Lock />}></Route>
+          <Route path="phase/:id" element={<Phase />}></Route>
+          <Route path="phase/:id/lock/:lockId" element={<Lock />}></Route>
         </Routes>
         <Footer />
       </div>

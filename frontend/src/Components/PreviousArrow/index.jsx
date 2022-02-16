@@ -1,8 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
-const PreviousArrow = (props) => {
-  const { className, onClick, fontSize } = props;
+const PreviousArrow = ({ className, onClick, fontSize }) => {
   return (
     <div className={className} onClick={onClick}>
       <FontAwesomeIcon

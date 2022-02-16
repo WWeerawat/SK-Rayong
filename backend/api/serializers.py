@@ -2,20 +2,6 @@ from rest_framework import serializers
 from .models import Lock, LockImage, Nearyby, Phase, PhaseImage
 
 
-class PhaseImageSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = PhaseImage
-        fields = ["id", "image"]
-
-
-class PhaseSerializer(serializers.ModelSerializer):
-    images = PhaseImageSerializer(many=True, read_only=True)
-
-    class Meta:
-        model = Phase
-        fields = "__all__"
-
-
 class LockImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = LockImage
@@ -34,4 +20,19 @@ class LockSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Lock
+        fields = "__all__"
+
+
+class PhaseImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PhaseImage
+        fields = ["id", "image"]
+
+
+class PhaseSerializer(serializers.ModelSerializer):
+    images = PhaseImageSerializer(many=True, read_only=True)
+    phase_lock = LockSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Phase
         fields = "__all__"

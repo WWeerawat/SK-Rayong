@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import land from "../../Asset/images/land1.png";
-const LockCard = () => {
+const LockCard = ({ id, images, description }) => {
   const settings = {
     dots: true,
     fade: true,
@@ -19,20 +19,24 @@ const LockCard = () => {
     <div>
       <div className="relative m-5  ">
         <Slider {...settings}>
-          <img src={land} alt="" className="w-full shadow-lg p-4" />
-          <img src={land} alt="" className="w-full shadow-lg p-4" />
-          <img src={land} alt="" className="w-full shadow-lg p-4" />
+          {images.map((image, index) => (
+            <div key={image.image} style={{ paddingTop: "56.25%" }}>
+              <img
+                src={image.image}
+                alt=""
+                className="object-cover w-full shadow-lg p-4"
+              />
+            </div>
+          ))}
         </Slider>
 
         <div className="py-4 px-4">
           <p className="text-xl text-left text-body font-display">
-            เนื้อที่กว่า 800 ไร่ พิถีพิถันในการออกแบบผัง โครงการ
-            ให้ที่ดินจัดสรรทุกแปลงล้วนตั้ง อยู่บนเนินเขาลดหลั่นต่างระดับ
-            ไม่บดบังทิวทัศน์
+            {description}
           </p>
           <div className="grid justify-items-end">
             <button className="bg-yellow shadow-lg hover:bg-yellow-500 px-8 py-2 mt-2 rounded text-md font-display">
-              <Link to="/Lock">รายละเอียดเพิ่มเติม</Link>
+              <Link to={"lock/" + id}>รายละเอียดเพิ่มเติม</Link>
             </button>
           </div>
         </div>
