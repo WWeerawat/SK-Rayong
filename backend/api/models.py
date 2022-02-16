@@ -33,13 +33,15 @@ class PhaseImage(models.Model):
         slug = slugify(title)
         return "phase_images/%s/%s" % (slug, filename)
 
-    phase = models.ForeignKey(Phase, default=None, on_delete=models.CASCADE)
+    phase = models.ForeignKey(
+        Phase, default=None, related_name="images", on_delete=models.CASCADE
+    )
     image = models.ImageField(upload_to=get_image_filename, verbose_name="Image")
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.phase.name + self.image
+        return self.image
 
 
 class Lock(models.Model):
@@ -67,21 +69,25 @@ class Lock(models.Model):
 
 class LockImage(models.Model):
     def get_image_filename(instance, filename):
-        title = instance.phase.name
+        title = instance.lock.name
         slug = slugify(title)
-        return "phase_images/%s/%s" % (slug, filename)
+        return "lock_images/%s/%s" % (slug, filename)
 
-    lock = models.ForeignKey(Lock, default=None, on_delete=models.CASCADE)
+    lock = models.ForeignKey(
+        Lock, default=None, related_name="images", on_delete=models.CASCADE
+    )
     image = models.ImageField(upload_to=get_image_filename, verbose_name="Image")
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.lcok.name + self.image
+        return self.image
 
 
 class Nearyby(models.Model):
-    lock = models.ForeignKey(Lock, default=None, on_delete=models.CASCADE)
+    lock = models.ForeignKey(
+        Lock, default=None, related_name="nearbies", on_delete=models.CASCADE
+    )
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=255)
     distance = models.CharField(max_length=100)
