@@ -20,9 +20,9 @@ class Phase(models.Model):
     description = models.TextField(max_length=255)
     videoView = models.CharField(max_length=100)
     videoNearby = models.CharField(max_length=100)
+    videoHealth = models.CharField(max_length=100, blank=True)
     location = models.URLField(max_length=100)
     layoutImage = models.ImageField(upload_to=get_image_filename, verbose_name="Image")
-    slug = models.SlugField(blank=True, max_length=255, unique=True)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 
@@ -30,12 +30,12 @@ class Phase(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.name)
         if len(self.videoView) > 20:
             self.videoView = convert_ytframe(self.videoView)
         if len(self.videoNearby) > 20:
             self.videoNearby = convert_ytframe(self.videoNearby)
+        if len(self.videoHealth) > 20:
+            self.videoHealth = convert_ytframe(self.videoHealth)
         super(Phase, self).save(*args, **kwargs)
 
 
@@ -68,7 +68,6 @@ class Lock(models.Model):
     videoView = models.CharField(max_length=100)
     videoNearby = models.CharField(max_length=100)
     location = models.URLField(max_length=100)
-    slug = models.SlugField(blank=True, max_length=255, unique=True)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 
@@ -76,8 +75,6 @@ class Lock(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.name)
         if len(self.videoView) > 20:
             self.videoView = convert_ytframe(self.videoView)
         if len(self.videoNearby) > 20:

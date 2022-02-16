@@ -24,7 +24,7 @@ const LockCard = ({ id, images, description }) => {
               <img
                 src={image.image}
                 alt=""
-                className="object-cover w-full shadow-lg p-4"
+                className="object-cover w-full p-4"
               />
             </div>
           ))}

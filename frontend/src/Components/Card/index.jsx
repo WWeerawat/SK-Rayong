@@ -13,8 +13,6 @@ const Card = (props) => {
     speed: 2000,
     autoplaySpeed: 2000,
     pauseOnHover: true,
-    // prevArrow: <PreviousArrow fontSize="40px" />,
-    // nextArrow: <NextArrow fontSize="40px" />,
     className: "slides",
   };
   const { phase } = props;
@@ -24,11 +22,15 @@ const Card = (props) => {
         <Slider {...settings}>
           {phase.images &&
             phase.images.map((image, index) => (
-              <div key={image.image} style={{ paddingTop: "56.25%" }}>
+              <div
+                key={image.image}
+                className="flex max-h-[320px]"
+                style={{ paddingTop: "56.25%" }}
+              >
                 <img
                   src={image.image}
                   alt=""
-                  className="object-cover w-full shadow-lg"
+                  className="object-cover w-full shadow-lg "
                 />
               </div>
             ))}

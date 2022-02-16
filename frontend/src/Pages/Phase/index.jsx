@@ -113,27 +113,39 @@ const Phase = (props) => {
       <p className="text-center text-2xl text-body font-display m-4">
         บรรยากาศสถานที่ใกล้เคียง
       </p>
-      <iframe
-        title="videoNearby"
-        className="shadow-lg"
-        height="180"
-        src={"//www.youtube.com/embed/" + phase.videoNearby}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      ></iframe>
+      <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
+        <iframe
+          title="videoNearby"
+          className="absolute w-full h-full top-0 left-0 shadow-lg"
+          src={"//www.youtube.com/embed/" + phase.videoNearby}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </div>
 
-      <div className="m-4"></div>
-
+      <p className="text-center text-2xl text-body font-display m-4">
+        สถานที่ใกล้เคียง
+      </p>
       <div className="relative shadow-lg w-full p-4 bg-white">
-        <p className="text-left text-xl text-body font-display ">
-          สถานที่ใกล้เคียง
-        </p>
         {phase.phase_lock &&
           phase.phase_lock.map((lock, index) =>
             lock.nearbies.map((nearby, nearbyIndex) => (
               <NearByPlace key={nearby.name} nearby={nearby} />
             ))
           )}
+      </div>
+
+      <p className="text-center text-2xl text-body font-display m-4">
+        แผนพัฒนาสาธรนูปโภค
+      </p>
+      <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
+        <iframe
+          title="videoHealth"
+          className="absolute w-full h-full top-0 left-0 shadow-lg"
+          src={"//www.youtube.com/embed/" + phase.videoHealth}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
       </div>
     </div>
   );
