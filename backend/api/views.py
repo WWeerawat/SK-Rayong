@@ -5,6 +5,10 @@ from .models import Nearyby, Phase, Lock
 from .serializers import NearybySerializer, PhaseSerializer, LockSerializer
 
 # Create your views here.
+def index(request):
+    return render(request, "index.html")
+
+
 @api_view(["GET"])
 def getAllPhase(req):
     phases = Phase.objects.all()
