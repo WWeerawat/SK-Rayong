@@ -14,7 +14,9 @@ pip = "*"
 install = "*"
 django-storages = "*"
 azure-storage-blob = "*"
-django-embed-video = "*"
+gunicorn = "*"
+whitenoise = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
