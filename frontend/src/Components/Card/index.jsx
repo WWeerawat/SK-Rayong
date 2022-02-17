@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
-import land from "../../Asset/images/land1.png";
 const Card = (props) => {
   const settings = {
     dots: true,

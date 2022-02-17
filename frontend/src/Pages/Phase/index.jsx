@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import axios from "../../Config/axios";
 import underline from "../../Asset/images/underline.png";
-import land from "../../Asset/images/land1.png";
-import layout from "../../Asset/images/layout.png";
 import map from "../../Asset/images/map.png";
 import ggMapLogo from "../../Asset/images/ggMapLogo.png";
 import Dropdowm from "../../Components/Dropdown";

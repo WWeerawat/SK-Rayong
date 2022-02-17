@@ -1,5 +1,4 @@
 import React from "react";
-import { Collapse } from "react-collapse";
 import useCollapse from "react-collapsed";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";

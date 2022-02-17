@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
-import land from "../../Asset/images/land1.png";
 const LockCard = ({ id, images, description }) => {
   const settings = {
     dots: true,

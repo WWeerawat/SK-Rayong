@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import axios from "../../Config/axios";
+import NumberFormat from "react-number-format";
 import underline from "../../Asset/images/underline.png";
-import land from "../../Asset/images/land1.png";
 import map from "../../Asset/images/map.png";
 import ggMapLogo from "../../Asset/images/ggMapLogo.png";
 import NearByPlace from "../../Components/NearbyPlace";
@@ -69,21 +69,31 @@ const Lock = () => {
       </p>
       <div className="relative bg-white shadow-xl shadow-inner w-full p-4 ">
         <p className="text-left text-xl text-body font-display m-2">
-          ราคา: {lock.price} บาท
+          ราคา: <pr />
+          <NumberFormat
+            value={lock.price}
+            displayType={"text"}
+            thousandSeparator={true}
+          />
+          บาท
         </p>
         <p className="text-left text-xl text-body font-display m-2">
           <button className="border-2 border-green-500 px-4 rounded text-green-500 mr-2 ">
             ผ่อน
           </button>
-          {lock.monthly}/เดือน
+          <NumberFormat
+            value={lock.monthly}
+            displayType={"text"}
+            thousandSeparator={true}
+          />
+          /เดือน
         </p>
         <p className="text-left text-xl text-body font-display m-2">
           {lock.area} ตร.ม.
         </p>
         <br />
         <p className="text-left text-xl text-body font-display m-2">
-          ขายที่ดินโฉนด 14 ไร่ หนองแค ใกล้นิคมฯ เหมราช 1 ล้าน / ไร่ ผังสีชมพู
-          หนองปลาหมอ, หนองแค, สระบุรี
+          {lock.description}
         </p>
       </div>
       <p className="text-center text-2xl text-body font-display m-4 ">

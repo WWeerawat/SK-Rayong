@@ -6,7 +6,7 @@ import { faLongArrowAltDown } from "@fortawesome/free-solid-svg-icons";
 const Header = () => {
   return (
     <div>
-      <img src={headerImg} className="w-full " />
+      <img src={headerImg} className="w-full " alt="header_image" />
       <div className="text-center text-4xl text-primary font-bold font-display">
         <Link to="">SK</Link>
       </div>

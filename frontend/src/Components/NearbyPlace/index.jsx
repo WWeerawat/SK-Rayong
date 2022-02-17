@@ -4,7 +4,6 @@ import {
   faMapMarkerAlt,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
-import line from "../../Asset/images/line.png";
 const NearByPlace = ({ nearby }) => {
   return (
     <div>
