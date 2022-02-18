@@ -17,7 +17,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-PROJECT_DIR = Path(__file__).resolve().parent.parent.parent
+# PROJECT_DIR = Path(__file__).resolve().parent.parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -26,7 +26,7 @@ PROJECT_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = "django-insecure-=k2tbrkyd_fy!@^n8-cct97-au2*g($#vvbj@a6i2cn!sa6cwj"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["sk-rayong-backend.herokuapp.com", "127.0.0.1"]
 
@@ -129,8 +129,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = "static/"
-STATICFILES_DIRS = (BASE_DIR / "static",)  # update the STATICFILES_DIRS
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -149,6 +148,8 @@ MEDIA_URL = f"https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/"
 
 # Static
 
+STATIC_URL = "static/"
+
 # STATICFILES_STORAGE = "backend.custom_azure.AzureStaticStorage"
 # STATIC_LOCATION = "static"
 # STATIC_URL = f"https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/"
@@ -156,7 +157,7 @@ MEDIA_URL = f"https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/"
 #     PROJECT_DIR / "frontend/build/static",
 # ]
 # STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-STATIC_ROOT = BASE_DIR / "static"
+# STATIC_ROOT = BASE_DIR / "static"
 
 # Activate Django-Heroku.
 # django_heroku.settings(locals())
