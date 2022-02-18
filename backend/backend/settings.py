@@ -66,7 +66,7 @@ ROOT_URLCONF = "backend.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [PROJECT_DIR / "frontend/build"],
+        "DIRS": [],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -127,26 +127,36 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = "static/"
-
-STATICFILES_DIRS = (PROJECT_DIR / "frontend/build/static",)
-
-# STATIC_ROOT = BASE_DIR / "staticfiles"
+# STATIC_URL = "static/"
+# STATICFILES_DIRS = (
+#     PROJECT_DIR / "frontend" / "build" / "static",  # update the STATICFILES_DIRS
+# )
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# Azure Blob
+
 DEFAULT_FILE_STORAGE = "backend.custom_azure.AzureMediaStorage"
-STATICFILES_STORAGE = "backend.custom_azure.AzureStaticStorage"
-
-STATIC_LOCATION = "static"
-MEDIA_LOCATION = "media"
-
 AZURE_ACCOUNT_NAME = "skrayongblobstorage"
 AZURE_CUSTOM_DOMAIN = f"{AZURE_ACCOUNT_NAME}.blob.core.windows.net"
-STATIC_URL = f"https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/"
+
+# Media
+
+MEDIA_LOCATION = "media"
 MEDIA_URL = f"https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/"
 
+# Static
+
+# STATICFILES_STORAGE = "backend.custom_azure.AzureStaticStorage"
+# STATIC_LOCATION = "static"
+# STATIC_URL = f"https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/"
+# STATICFILES_DIRS = [
+#     PROJECT_DIR / "frontend/build/static",
+# ]
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# STATIC_ROOT = PROJECT_DIR / "frontend/build/static"
+
 # Activate Django-Heroku.
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
