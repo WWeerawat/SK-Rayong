@@ -158,7 +158,7 @@ MEDIA_URL = f"https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/"
 #     PROJECT_DIR / "frontend/build/static",
 # ]
 # STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-# STATIC_ROOT = PROJECT_DIR / "frontend/build/static"
+STATIC_ROOT = BASE_DIR / "static"
 
 # Activate Django-Heroku.
 # django_heroku.settings(locals())
