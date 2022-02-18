@@ -157,7 +157,7 @@ STATIC_URL = "static/"
 #     PROJECT_DIR / "frontend/build/static",
 # ]
 # STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-# STATIC_ROOT = BASE_DIR / "static"
+STATIC_ROOT = BASE_DIR / "static"
 
 # Activate Django-Heroku.
 # django_heroku.settings(locals())
