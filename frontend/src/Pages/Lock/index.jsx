@@ -22,6 +22,7 @@ const Lock = () => {
 
   const [lock, setLock] = useState([]);
   useEffect(() => {
+    window.scrollTo(0, 0);
     axios.get(`/lock/${lockId}`).then((response) => {
       setLock(response.data);
     });

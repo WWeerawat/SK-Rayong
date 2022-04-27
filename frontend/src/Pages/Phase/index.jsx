@@ -6,6 +6,7 @@ import map from "../../Asset/images/map.png";
 import ggMapLogo from "../../Asset/images/ggMapLogo.png";
 import Dropdowm from "../../Components/Dropdown";
 import NearByPlace from "../../Components/NearbyPlace";
+import GoogleMap from "../../Components/GoogleMap";
 import { useParams } from "react-router-dom";
 const Phase = (props) => {
   const settings = {
@@ -22,7 +23,8 @@ const Phase = (props) => {
 
   const [phase, setPhase] = useState([]);
   useEffect(() => {
-    axios.get(`/phase/${id}`).then((response) => {
+    window.scrollTo(0, 0);
+    axios.get(`/phase/${id}/`).then((response) => {
       setPhase(response.data);
     });
   }, [id]);
@@ -104,7 +106,8 @@ const Phase = (props) => {
           <img src={ggMapLogo} alt="" className="inline " /> เปิดใน Google maps
         </p>
         <div className="flex justify-center">
-          <img src={map} alt="" className="w-full shadow-lg" />
+          <GoogleMap />
+          {/* <img src={map} alt="" className="w-full shadow-lg" /> */}
         </div>
       </a>
 
@@ -126,10 +129,12 @@ const Phase = (props) => {
       </p>
       <div className="relative shadow-lg w-full p-4 bg-white">
         {phase.phase_lock &&
-          phase.phase_lock.map((lock, index) =>
-            lock.nearbies.map((nearby, nearbyIndex) => (
-              <NearByPlace key={nearby.name} nearby={nearby} />
-            ))
+          phase.phase_lock.map(
+            (lock, index) =>
+              lock.nearbies &&
+              lock.nearbies.map((nearby, nearbyIndex) => (
+                <NearByPlace key={nearby.name} nearby={nearby} />
+              ))
           )}
       </div>
 
