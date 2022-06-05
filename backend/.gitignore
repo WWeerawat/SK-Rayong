@@ -3,9 +3,13 @@
 # Created by https://www.gitignore.io/api/python,macos
 
 ### macOS ###
-
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
 db.sqlite3
-
+venv/
 # General
 .DS_Store
 .AppleDouble

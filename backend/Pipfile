@@ -4,11 +4,21 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+azure-core= "*"
+azure-storage-blob = "*"
+dj-database-url = "*"
+Django = "*"
+django-cors-headers = "*"
+django-embed-video = "*"
+django-heroku = "*"
+django-storages = "*"
+djangorestframework = "*"
 gunicorn = "*"
 whitenoise = "*"
 python-dotenv = "*"
 psycopg2 = "*"
 psycopg2-binary = "*"
+pillow = "*"
 
 [dev-packages]
 
