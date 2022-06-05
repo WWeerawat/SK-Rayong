@@ -35,3 +35,10 @@ def getLock(req, pk):
     lock = Lock.objects.get(id=pk)
     serializer = LockSerializer(lock, many=False)
     return Response(serializer.data)
+
+
+@api_view(["GET"])
+def getNearby(req, pk):
+    nearby = Nearyby.objects.filter(phase=pk)
+    serializer = NearybySerializer(nearby, many=True)
+    return Response(serializer.data)

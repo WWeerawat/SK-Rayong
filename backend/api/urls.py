@@ -6,4 +6,5 @@ urlpatterns = [
     path("phase/<str:pk>/", views.getPhase, name="get_phase"),
     path("locks/", views.getAllLock, name="all_lock"),
     path("lock/<str:pk>/", views.getLock, name="get_lock"),
+    path("nearby/<str:pk>/", views.getNearby, name="get_nearby"),
 ]
