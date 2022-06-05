@@ -139,7 +139,7 @@ class Nearyby(models.Model):
     description = models.TextField(max_length=255, verbose_name="รายละเอียด")
     distance = models.CharField(max_length=100, verbose_name="ระยะทาง")
     time = models.CharField(max_length=100, verbose_name="เวลาคาดการณ์")
-    link = models.URLField(max_length=100, verbose_name="ลิงก์(ถ้ามี)", blank=True)
+    link = models.URLField(max_length=100, verbose_name="ลิงก์(ถ้ามี) ", blank=True)
 
     class Meta:
         ordering = ["name"]
