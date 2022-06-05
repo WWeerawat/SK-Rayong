@@ -7,7 +7,7 @@ const Home = () => {
   const [phases, setPhases] = useState([]);
 
   useEffect(() => {
-    axios.get("/phases").then((response) => {
+    axios.get("/phases/").then((response) => {
       setPhases(response.data);
     });
   }, []);
