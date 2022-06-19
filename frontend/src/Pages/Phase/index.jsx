@@ -18,7 +18,6 @@ const Phase = (props) => {
     pauseOnHover: true,
   };
   let { id } = useParams();
-
   const [phase, setPhase] = useState([]);
   const [nearby, setNearby] = useState([]);
   useEffect(() => {
@@ -120,7 +119,7 @@ const Phase = (props) => {
       </div>
 
       <p className="text-center text-2xl text-body font-display m-4 ">
-        สถานที่ใกล้เคียง
+        แผนที่ที่ดิน
       </p>
       <a href={phase.location}>
         <div className="flex justify-center m-4">

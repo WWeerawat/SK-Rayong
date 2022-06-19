@@ -67,7 +67,7 @@ const Lock = () => {
       </p>
       <div className="relative bg-white shadow-xl shadow-inner w-full p-4 ">
         <p className="text-left text-xl text-body font-display m-2">
-          ราคา: <pr />
+          ราคา:
           <NumberFormat
             value={lock.price}
             displayType={'text'}
