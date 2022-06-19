@@ -87,7 +87,7 @@ const Lock = () => {
           /เดือน
         </p>
         <p className="text-left text-xl text-body font-display m-2">
-          {lock.area} ตร.กม.
+          {lock.area} ตร.วา
         </p>
         <br />
         <p className="text-left text-xl text-body font-display m-2">
