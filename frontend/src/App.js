@@ -1,11 +1,11 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import "./App.css";
-import Footer from "./Components/Footer";
-import Header from "./Components/Header";
-import Home from "./Pages/Home";
-import Lock from "./Pages/Lock";
-import Phase from "./Pages/Phase";
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import './App.css';
+import Footer from './Components/Footer';
+import Header from './Components/Header';
+import Home from './Pages/Home';
+import Lock from './Pages/Lock';
+import Phase from './Pages/Phase';
 
 function App() {
   return (
@@ -15,7 +15,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="phase/:id" element={<Phase />}></Route>
-          <Route path="phase/:id/lock/:lockId" element={<Lock />}></Route>
+          <Route
+            path="phase/:id/lock/:lockId"
+            element={<Lock />}
+          ></Route>
         </Routes>
         <Footer />
       </div>
