@@ -25,11 +25,11 @@ const NearByPlace = ({ nearby }) => {
         </p>
         <p></p>
         <p className="inline text-md text-body font-display text-left">
-          ห่างจากล็อกที่ดิน {nearby.distance} เมตร
+          ห่างจากล็อคที่ดิน {nearby.distance} กิโลเมตร
         </p>
 
         <p className="inline text-md text-body font-display text-right ">
-          {nearby.distance} m
+          {nearby.distance} km
         </p>
         <p></p>
         <a href={nearby.link} className="text-left">

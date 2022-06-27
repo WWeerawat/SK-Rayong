@@ -61,7 +61,7 @@ const Phase = (props) => {
           ))}
       </Slider>
 
-      <p className="text-md text-left text-body font-display my-4">
+      <p className="text-md text-left text-body font-display my-4 whitespace-pre-line">
         {phase.description}
       </p>
 
@@ -82,7 +82,7 @@ const Phase = (props) => {
       </div>
 
       <p className="text-center text-2xl text-body font-display m-4">
-        ผังล็อกที่ดิน
+        ผังล็อคที่ดิน
       </p>
       <Slider {...settings}>
         {phase.layout_images &&
@@ -101,7 +101,7 @@ const Phase = (props) => {
       </Slider>
 
       <p className="text-center text-2xl text-body font-display m-4 ">
-        ล็อกหลุดจอง
+        ล็อคหลุดจอง
       </p>
       <div className="relative shadow-lg w-full pt-2 bg-white">
         {phase.phase_lock &&
@@ -159,7 +159,7 @@ const Phase = (props) => {
       <p className="text-center text-2xl text-body font-display m-4">
         แผนพัฒนาสาธรนูปโภค
       </p>
-      <p className="text-md text-left text-body font-display my-4">
+      <p className="text-md text-left text-body font-display my-4 whitespace-pre-line">
         {phase.health_description}
       </p>
     </div>

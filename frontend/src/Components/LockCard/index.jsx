@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Slider from "react-slick";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Slider from 'react-slick';
 const LockCard = ({ id, images, description }) => {
   const settings = {
     dots: true,
@@ -12,14 +12,14 @@ const LockCard = ({ id, images, description }) => {
     speed: 2000,
     autoplaySpeed: 2000,
     pauseOnHover: true,
-    className: "slides",
+    className: 'slides',
   };
   return (
     <div>
       <div className="relative m-5  ">
         <Slider {...settings}>
           {images.map((image, index) => (
-            <div key={image.image} style={{ paddingTop: "56.25%" }}>
+            <div key={image.image} style={{ paddingTop: '56.25%' }}>
               <img
                 src={image.image}
                 alt=""
@@ -30,12 +30,12 @@ const LockCard = ({ id, images, description }) => {
         </Slider>
 
         <div className="py-4 px-4">
-          <p className="text-xl text-left text-body font-display">
+          <p className="text-xl text-left text-body font-display whitespace-pre-line">
             {description}
           </p>
           <div className="grid justify-items-end">
             <button className="bg-yellow shadow-lg hover:bg-yellow-500 px-8 py-2 mt-2 rounded text-md font-display">
-              <Link to={"lock/" + id}>รายละเอียดเพิ่มเติม</Link>
+              <Link to={'lock/' + id}>รายละเอียดเพิ่มเติม</Link>
             </button>
           </div>
         </div>

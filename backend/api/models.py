@@ -119,10 +119,10 @@ class LockImage(models.Model):
         default=None,
         related_name="images",
         on_delete=models.CASCADE,
-        verbose_name="ขื่อล็อก",
+        verbose_name="ขื่อล็อค",
     )
     image = models.ImageField(
-        upload_to=get_image_filename, verbose_name="รูปภาพในล็อก")
+        upload_to=get_image_filename, verbose_name="รูปภาพในล็อค")
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 
